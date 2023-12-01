@@ -5,9 +5,10 @@ import (
 	"strings"
 	"time"
 
+	"errors"
+
 	"github.com/ethereum/go-ethereum/accounts/abi"
 	"github.com/ethereum/go-ethereum/common"
-	"github.com/pkg/errors"
 
 	"github.com/jmoiron/sqlx"
 

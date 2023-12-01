@@ -8,7 +8,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/pkg/errors"
+	"errors"
 
 	ocrtypes "github.com/smartcontractkit/libocr/offchainreporting/types"
 

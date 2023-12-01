@@ -9,9 +9,10 @@ import (
 	"sync/atomic"
 	"time"
 
+	"errors"
+
 	"github.com/ethereum/go-ethereum/accounts/abi/bind"
 	"github.com/ethereum/go-ethereum/common"
-	"github.com/pkg/errors"
 
 	"github.com/smartcontractkit/chainlink-common/pkg/services"
 	evmclient "github.com/smartcontractkit/chainlink/v2/core/chains/evm/client"

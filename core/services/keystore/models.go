@@ -6,9 +6,10 @@ import (
 	"math/big"
 	"time"
 
+	"errors"
+
 	gethkeystore "github.com/ethereum/go-ethereum/accounts/keystore"
 	"github.com/ethereum/go-ethereum/common"
-	"github.com/pkg/errors"
 
 	"github.com/smartcontractkit/chainlink/v2/core/logger"
 	"github.com/smartcontractkit/chainlink/v2/core/services/keystore/keys/cosmoskey"

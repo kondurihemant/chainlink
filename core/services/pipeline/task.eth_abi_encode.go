@@ -3,9 +3,10 @@ package pipeline
 import (
 	"context"
 
+	"errors"
+
 	"github.com/ethereum/go-ethereum/accounts/abi"
 	"github.com/ethereum/go-ethereum/common/hexutil"
-	"github.com/pkg/errors"
 	"go.uber.org/multierr"
 
 	"github.com/smartcontractkit/chainlink/v2/core/logger"

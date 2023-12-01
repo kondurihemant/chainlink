@@ -4,9 +4,10 @@ import (
 	"encoding/json"
 	"fmt"
 
+	"errors"
+
 	"github.com/ethereum/go-ethereum/accounts/keystore"
 	"github.com/google/uuid"
-	"github.com/pkg/errors"
 	"go.dedis.ch/kyber/v3"
 
 	"github.com/smartcontractkit/chainlink/v2/core/services/signatures/secp256k1"

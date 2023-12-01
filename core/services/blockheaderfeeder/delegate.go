@@ -5,7 +5,8 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/pkg/errors"
+	"errors"
+
 	"go.uber.org/multierr"
 
 	"github.com/smartcontractkit/chainlink-common/pkg/services"

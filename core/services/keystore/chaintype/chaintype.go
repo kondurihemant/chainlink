@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/pkg/errors"
+	"errors"
 )
 
 // ChainType denotes the chain or network to work with

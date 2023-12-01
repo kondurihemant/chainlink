@@ -9,8 +9,9 @@ import (
 	"testing"
 	"time"
 
+	"errors"
+
 	"github.com/ethereum/go-ethereum/common"
-	"github.com/pkg/errors"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 

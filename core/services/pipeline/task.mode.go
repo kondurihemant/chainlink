@@ -6,7 +6,8 @@ import (
 	"fmt"
 	"math/big"
 
-	"github.com/pkg/errors"
+	"errors"
+
 	"github.com/shopspring/decimal"
 	"go.uber.org/multierr"
 

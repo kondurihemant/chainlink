@@ -8,8 +8,9 @@ import (
 	"testing"
 	"time"
 
+	"errors"
+
 	"github.com/ethereum/go-ethereum/common"
-	"github.com/pkg/errors"
 
 	"github.com/smartcontractkit/chainlink/v2/core/chains/evm/headtracker"
 	"github.com/smartcontractkit/chainlink/v2/core/chains/legacyevm"

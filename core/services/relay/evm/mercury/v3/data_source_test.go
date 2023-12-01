@@ -5,7 +5,8 @@ import (
 	"math/big"
 	"testing"
 
-	"github.com/pkg/errors"
+	"errors"
+
 	"github.com/stretchr/testify/assert"
 
 	relaymercury "github.com/smartcontractkit/chainlink-common/pkg/reportingplugins/mercury"

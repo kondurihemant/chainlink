@@ -3,7 +3,7 @@ package pipeline
 import (
 	"context"
 
-	"github.com/pkg/errors"
+	"errors"
 
 	"github.com/smartcontractkit/chainlink/v2/core/logger"
 )

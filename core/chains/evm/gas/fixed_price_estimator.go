@@ -3,7 +3,7 @@ package gas
 import (
 	"context"
 
-	"github.com/pkg/errors"
+	"errors"
 
 	"github.com/smartcontractkit/chainlink-common/pkg/logger"
 	commonfee "github.com/smartcontractkit/chainlink/v2/common/fee"

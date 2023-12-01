@@ -3,7 +3,7 @@ package functions
 import (
 	"context"
 
-	"github.com/pkg/errors"
+	"errors"
 )
 
 // Simple wrapper around a channel to transmit offchain reports between

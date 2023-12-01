@@ -3,8 +3,9 @@ package resolver
 import (
 	"testing"
 
+	"errors"
+
 	gqlerrors "github.com/graph-gophers/graphql-go/errors"
-	"github.com/pkg/errors"
 	"github.com/stretchr/testify/assert"
 	"go.uber.org/zap/zapcore"
 

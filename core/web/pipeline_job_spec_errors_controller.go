@@ -4,8 +4,9 @@ import (
 	"database/sql"
 	"net/http"
 
+	"errors"
+
 	"github.com/gin-gonic/gin"
-	"github.com/pkg/errors"
 
 	"github.com/smartcontractkit/chainlink/v2/core/logger/audit"
 	"github.com/smartcontractkit/chainlink/v2/core/services/chainlink"

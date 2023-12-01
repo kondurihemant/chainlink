@@ -7,9 +7,10 @@ import (
 	"sync"
 	"time"
 
+	"errors"
+
 	"github.com/google/uuid"
 	"github.com/lib/pq"
-	"github.com/pkg/errors"
 
 	"github.com/smartcontractkit/chainlink-common/pkg/services"
 

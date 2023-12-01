@@ -1,8 +1,9 @@
 package ocrcommon
 
 import (
+	"errors"
+
 	"github.com/pelletier/go-toml"
-	"github.com/pkg/errors"
 	"go.uber.org/multierr"
 )
 

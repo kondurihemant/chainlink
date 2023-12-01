@@ -7,7 +7,8 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/pkg/errors"
+	"errors"
+
 	"golang.org/x/crypto/curve25519"
 )
 

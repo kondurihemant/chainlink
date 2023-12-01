@@ -9,8 +9,9 @@ import (
 	"strconv"
 	"time"
 
+	"errors"
+
 	"github.com/mitchellh/go-homedir"
-	"github.com/pkg/errors"
 	"go.uber.org/zap/zapcore"
 
 	commonassets "github.com/smartcontractkit/chainlink-common/pkg/assets"

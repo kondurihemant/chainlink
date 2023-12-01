@@ -4,10 +4,11 @@ import (
 	"math/big"
 	"time"
 
+	"errors"
+
 	"github.com/lib/pq"
 	"github.com/multiformats/go-multiaddr"
 	"github.com/pelletier/go-toml"
-	"github.com/pkg/errors"
 	"github.com/smartcontractkit/libocr/offchainreporting"
 
 	"github.com/smartcontractkit/chainlink/v2/common/config"

@@ -10,7 +10,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/pkg/errors"
+	"errors"
 
 	commonassets "github.com/smartcontractkit/chainlink-common/pkg/assets"
 	"github.com/smartcontractkit/chainlink/v2/core/chains/evm/assets"

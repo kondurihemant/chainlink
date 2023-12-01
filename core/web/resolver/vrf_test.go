@@ -6,7 +6,8 @@ import (
 	"math/big"
 	"testing"
 
-	"github.com/pkg/errors"
+	"errors"
+
 	"github.com/stretchr/testify/assert"
 
 	"github.com/smartcontractkit/chainlink/v2/core/services/keystore"

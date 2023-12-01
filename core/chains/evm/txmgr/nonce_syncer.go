@@ -5,8 +5,9 @@ import (
 	"fmt"
 	"math/big"
 
+	"errors"
+
 	"github.com/ethereum/go-ethereum/common"
-	"github.com/pkg/errors"
 
 	"github.com/smartcontractkit/chainlink-common/pkg/logger"
 	"github.com/smartcontractkit/chainlink/v2/common/txmgr"

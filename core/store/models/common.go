@@ -11,8 +11,9 @@ import (
 	"strings"
 	"time"
 
+	"errors"
+
 	"github.com/ethereum/go-ethereum/common"
-	"github.com/pkg/errors"
 	"github.com/robfig/cron/v3"
 	"github.com/tidwall/gjson"
 	"go.uber.org/multierr"

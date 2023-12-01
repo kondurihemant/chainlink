@@ -8,7 +8,8 @@ import (
 	"strings"
 	"syscall"
 
-	"github.com/pkg/errors"
+	"errors"
+
 	"go.uber.org/multierr"
 )
 

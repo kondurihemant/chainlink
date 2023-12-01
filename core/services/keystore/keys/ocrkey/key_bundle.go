@@ -12,8 +12,9 @@ import (
 	"log"
 	"time"
 
+	"errors"
+
 	"github.com/ethereum/go-ethereum/accounts/keystore"
-	"github.com/pkg/errors"
 	ocrtypes "github.com/smartcontractkit/libocr/offchainreporting/types"
 	"golang.org/x/crypto/curve25519"
 

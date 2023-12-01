@@ -4,7 +4,7 @@ import (
 	"database/sql/driver"
 	"fmt"
 
-	"github.com/pkg/errors"
+	"errors"
 
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/common/hexutil"

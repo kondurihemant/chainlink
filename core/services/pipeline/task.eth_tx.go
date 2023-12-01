@@ -7,9 +7,10 @@ import (
 	"reflect"
 	"strconv"
 
+	"errors"
+
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/mitchellh/mapstructure"
-	"github.com/pkg/errors"
 	"go.uber.org/multierr"
 	"gopkg.in/guregu/null.v4"
 

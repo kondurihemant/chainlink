@@ -5,8 +5,9 @@ import (
 	"strings"
 	"time"
 
+	"errors"
+
 	"github.com/google/uuid"
-	"github.com/pkg/errors"
 
 	"github.com/smartcontractkit/chainlink/v2/core/services/vrf/vrfcommon"
 )

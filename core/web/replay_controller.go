@@ -4,8 +4,9 @@ import (
 	"net/http"
 	"strconv"
 
+	"errors"
+
 	"github.com/gin-gonic/gin"
-	"github.com/pkg/errors"
 
 	"github.com/smartcontractkit/chainlink/v2/core/services/chainlink"
 	"github.com/smartcontractkit/chainlink/v2/core/utils"

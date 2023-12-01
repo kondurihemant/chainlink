@@ -5,10 +5,11 @@ import (
 	"context"
 	"math/big"
 
+	"errors"
+
 	"github.com/ethereum/go-ethereum/common/hexutil"
 	"github.com/ethereum/go-ethereum/core/types"
 	"github.com/ethereum/go-ethereum/rpc"
-	"github.com/pkg/errors"
 )
 
 type Client interface {

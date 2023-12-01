@@ -8,9 +8,10 @@ import (
 	"sync"
 	"time"
 
+	"errors"
+
 	"github.com/avast/retry-go/v4"
 	"github.com/ethereum/go-ethereum/accounts/abi/bind"
-	"github.com/pkg/errors"
 	"github.com/theodesp/go-heaps/pairing"
 
 	"github.com/smartcontractkit/chainlink-common/pkg/services"

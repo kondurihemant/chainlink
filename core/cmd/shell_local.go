@@ -23,8 +23,9 @@ import (
 	"github.com/ethereum/go-ethereum/common/hexutil"
 	"github.com/fatih/color"
 
+	"errors"
+
 	"github.com/kylelemons/godebug/diff"
-	"github.com/pkg/errors"
 	"github.com/urfave/cli"
 	"go.uber.org/multierr"
 	"golang.org/x/sync/errgroup"

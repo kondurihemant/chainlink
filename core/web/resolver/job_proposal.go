@@ -4,8 +4,9 @@ import (
 	"context"
 	"strconv"
 
+	"errors"
+
 	"github.com/graph-gophers/graphql-go"
-	"github.com/pkg/errors"
 
 	"github.com/smartcontractkit/chainlink/v2/core/services/feeds"
 	"github.com/smartcontractkit/chainlink/v2/core/web/loader"

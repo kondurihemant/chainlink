@@ -6,11 +6,12 @@ import (
 	"strings"
 	"time"
 
+	"errors"
+
 	p2ppeer "github.com/libp2p/go-libp2p-core/peer"
 	p2ppeerstore "github.com/libp2p/go-libp2p-core/peerstore"
 	"github.com/libp2p/go-libp2p-peerstore/pstoremem"
 	ma "github.com/multiformats/go-multiaddr"
-	"github.com/pkg/errors"
 
 	"github.com/jmoiron/sqlx"
 

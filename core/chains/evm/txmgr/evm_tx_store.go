@@ -10,12 +10,13 @@ import (
 	"strings"
 	"time"
 
+	pkgerrors "errors"
+
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/google/uuid"
 	"github.com/jackc/pgconn"
 	"github.com/jmoiron/sqlx"
 	"github.com/lib/pq"
-	pkgerrors "github.com/pkg/errors"
 	nullv4 "gopkg.in/guregu/null.v4"
 
 	"github.com/smartcontractkit/chainlink-common/pkg/logger"

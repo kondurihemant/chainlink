@@ -5,7 +5,8 @@ import (
 	"fmt"
 	"math/big"
 
-	"github.com/pkg/errors"
+	"errors"
+
 	"go.uber.org/multierr"
 
 	"github.com/smartcontractkit/chainlink-common/pkg/loop"

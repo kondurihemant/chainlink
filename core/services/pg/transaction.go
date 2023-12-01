@@ -6,9 +6,10 @@ import (
 	"fmt"
 	"time"
 
+	"errors"
+
 	"github.com/getsentry/sentry-go"
 	"github.com/jmoiron/sqlx"
-	"github.com/pkg/errors"
 	"go.uber.org/multierr"
 
 	"github.com/smartcontractkit/chainlink-common/pkg/logger"

@@ -3,9 +3,10 @@ package keeper
 import (
 	"math/rand"
 
+	"errors"
+
 	"github.com/jmoiron/sqlx"
 	"github.com/lib/pq"
-	"github.com/pkg/errors"
 
 	"github.com/smartcontractkit/chainlink/v2/core/logger"
 	"github.com/smartcontractkit/chainlink/v2/core/services/keystore/keys/ethkey"

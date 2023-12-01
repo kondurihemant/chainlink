@@ -10,9 +10,10 @@ import (
 	"sync"
 	"time"
 
+	pkgerrors "errors"
+
 	"github.com/ethereum/go-ethereum/accounts/abi"
 	"github.com/jpillora/backoff"
-	pkgerrors "github.com/pkg/errors"
 	"github.com/prometheus/client_golang/prometheus"
 	"github.com/prometheus/client_golang/prometheus/promauto"
 

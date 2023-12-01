@@ -6,9 +6,10 @@ import (
 	"fmt"
 	"sort"
 
+	"errors"
+
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/graph-gophers/graphql-go"
-	"github.com/pkg/errors"
 
 	"github.com/smartcontractkit/chainlink-common/pkg/types"
 	"github.com/smartcontractkit/chainlink/v2/core/bridges"

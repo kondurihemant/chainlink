@@ -7,9 +7,10 @@ import (
 	"testing"
 	"time"
 
+	"errors"
+
 	"github.com/google/uuid"
 	gqlerrors "github.com/graph-gophers/graphql-go/errors"
-	"github.com/pkg/errors"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/mock"
 	"gopkg.in/guregu/null.v4"

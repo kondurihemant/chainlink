@@ -8,9 +8,10 @@ import (
 	"math/big"
 	"time"
 
+	"errors"
+
 	gethCommon "github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/common/hexutil"
-	"github.com/pkg/errors"
 	"github.com/urfave/cli"
 	"go.uber.org/multierr"
 

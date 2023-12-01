@@ -19,11 +19,12 @@ import (
 	"sync"
 	"time"
 
+	"errors"
+
 	"github.com/Depado/ginprom"
 	"github.com/Masterminds/semver/v3"
 	"github.com/getsentry/sentry-go"
 	"github.com/gin-gonic/gin"
-	"github.com/pkg/errors"
 	"github.com/urfave/cli"
 	"go.uber.org/multierr"
 	"go.uber.org/zap/zapcore"

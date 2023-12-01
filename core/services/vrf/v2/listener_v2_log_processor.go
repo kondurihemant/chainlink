@@ -12,12 +12,13 @@ import (
 	"sync"
 	"time"
 
+	"errors"
+
 	"github.com/ethereum/go-ethereum"
 	"github.com/ethereum/go-ethereum/accounts/abi/bind"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/common/hexutil"
 	"github.com/ethereum/go-ethereum/rpc"
-	"github.com/pkg/errors"
 	"go.uber.org/multierr"
 
 	txmgrcommon "github.com/smartcontractkit/chainlink/v2/common/txmgr"

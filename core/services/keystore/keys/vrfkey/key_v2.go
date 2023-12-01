@@ -5,8 +5,9 @@ import (
 	"fmt"
 	"math/big"
 
+	"errors"
+
 	"github.com/ethereum/go-ethereum/common/hexutil"
-	"github.com/pkg/errors"
 	"go.dedis.ch/kyber/v3"
 
 	"github.com/smartcontractkit/chainlink/v2/core/services/signatures/secp256k1"

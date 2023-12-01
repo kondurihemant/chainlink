@@ -6,11 +6,12 @@ import (
 
 	evmtypes "github.com/smartcontractkit/chainlink/v2/core/chains/evm/types"
 
+	"errors"
+
 	"github.com/ethereum/go-ethereum"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/core/types"
 	"github.com/ethereum/go-ethereum/rpc"
-	"github.com/pkg/errors"
 )
 
 var _ Node = (*erroringNode)(nil)

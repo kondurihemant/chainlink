@@ -5,9 +5,10 @@ import (
 	"sync"
 	"time"
 
+	"errors"
+
 	gethCommon "github.com/ethereum/go-ethereum/common"
 	gethTypes "github.com/ethereum/go-ethereum/core/types"
-	"github.com/pkg/errors"
 
 	"github.com/jmoiron/sqlx"
 

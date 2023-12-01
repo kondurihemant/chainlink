@@ -3,9 +3,10 @@ package blockheaderfeeder
 import (
 	"time"
 
+	"errors"
+
 	"github.com/google/uuid"
 	"github.com/pelletier/go-toml"
-	"github.com/pkg/errors"
 
 	"github.com/smartcontractkit/chainlink/v2/core/services/job"
 )

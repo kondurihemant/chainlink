@@ -3,8 +3,9 @@ package resolver
 import (
 	"testing"
 
+	"errors"
+
 	gqlerrors "github.com/graph-gophers/graphql-go/errors"
-	"github.com/pkg/errors"
 
 	"github.com/smartcontractkit/chainlink-common/pkg/types"
 	"github.com/smartcontractkit/chainlink/v2/core/chains/evm/config/toml"

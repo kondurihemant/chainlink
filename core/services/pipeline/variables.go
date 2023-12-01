@@ -5,7 +5,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/pkg/errors"
+	"errors"
 )
 
 var (

@@ -6,8 +6,9 @@ import (
 	"net/url"
 	"strconv"
 
+	"errors"
+
 	"github.com/manyminds/api2go/jsonapi"
-	"github.com/pkg/errors"
 )
 
 const (

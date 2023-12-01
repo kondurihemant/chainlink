@@ -1,7 +1,7 @@
 package cron
 
 import (
-	"github.com/pkg/errors"
+	"errors"
 
 	"github.com/smartcontractkit/chainlink/v2/core/logger"
 	"github.com/smartcontractkit/chainlink/v2/core/services/job"

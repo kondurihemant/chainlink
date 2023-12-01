@@ -4,9 +4,10 @@ import (
 	"database/sql"
 	"net/http"
 
+	"errors"
+
 	"github.com/gin-contrib/sessions"
 	"github.com/gin-gonic/gin"
-	"github.com/pkg/errors"
 
 	"github.com/smartcontractkit/chainlink/v2/core/auth"
 	"github.com/smartcontractkit/chainlink/v2/core/bridges"

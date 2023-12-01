@@ -3,7 +3,8 @@ package pipeline_test
 import (
 	"testing"
 
-	"github.com/pkg/errors"
+	"errors"
+
 	"github.com/shopspring/decimal"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"

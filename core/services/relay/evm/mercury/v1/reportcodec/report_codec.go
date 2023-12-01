@@ -6,8 +6,9 @@ import (
 	"math"
 	"math/big"
 
+	pkgerrors "errors"
+
 	"github.com/ethereum/go-ethereum/common"
-	pkgerrors "github.com/pkg/errors"
 
 	ocrtypes "github.com/smartcontractkit/libocr/offchainreporting2plus/types"
 

@@ -7,8 +7,9 @@ import (
 	"net/http"
 	"time"
 
+	"errors"
+
 	"github.com/ethereum/go-ethereum/common"
-	"github.com/pkg/errors"
 
 	commontxmgr "github.com/smartcontractkit/chainlink/v2/common/txmgr"
 	"github.com/smartcontractkit/chainlink/v2/core/chains/evm/assets"

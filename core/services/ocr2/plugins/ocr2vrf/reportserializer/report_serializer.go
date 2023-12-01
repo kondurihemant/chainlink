@@ -1,7 +1,8 @@
 package reportserializer
 
 import (
-	"github.com/pkg/errors"
+	"errors"
+
 	"go.dedis.ch/kyber/v3"
 
 	"github.com/smartcontractkit/chainlink-vrf/ocr2vrf"

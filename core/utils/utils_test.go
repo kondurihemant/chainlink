@@ -11,7 +11,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/pkg/errors"
+	"errors"
 
 	"github.com/smartcontractkit/chainlink/v2/core/internal/cltest"
 	"github.com/smartcontractkit/chainlink/v2/core/internal/testutils"

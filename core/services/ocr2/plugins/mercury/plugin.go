@@ -3,7 +3,7 @@ package mercury
 import (
 	"encoding/json"
 
-	"github.com/pkg/errors"
+	"errors"
 
 	libocr2 "github.com/smartcontractkit/libocr/offchainreporting2plus"
 

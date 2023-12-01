@@ -4,7 +4,8 @@ import (
 	"database/sql"
 	"encoding/json"
 
-	"github.com/pkg/errors"
+	"errors"
+
 	"github.com/smartcontractkit/libocr/gethwrappers2/ocr2aggregator"
 	ocrtypes "github.com/smartcontractkit/libocr/offchainreporting2plus/types"
 

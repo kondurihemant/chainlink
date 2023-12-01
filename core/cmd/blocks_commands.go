@@ -6,7 +6,8 @@ import (
 	"net/url"
 	"strconv"
 
-	"github.com/pkg/errors"
+	"errors"
+
 	"github.com/urfave/cli"
 	"go.uber.org/multierr"
 )

@@ -4,7 +4,7 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/pkg/errors"
+	"errors"
 
 	"github.com/smartcontractkit/chainlink-common/pkg/loop"
 	"github.com/smartcontractkit/chainlink/v2/core/services/keystore/keys/cosmoskey"

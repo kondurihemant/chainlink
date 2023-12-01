@@ -15,8 +15,9 @@ import (
 	"github.com/smartcontractkit/chainlink/v2/core/store/models"
 	"github.com/smartcontractkit/chainlink/v2/core/web/presenters"
 
+	"errors"
+
 	"github.com/gin-gonic/gin"
-	"github.com/pkg/errors"
 )
 
 // ValidateBridgeTypeNotExist checks that a bridge has not already been created

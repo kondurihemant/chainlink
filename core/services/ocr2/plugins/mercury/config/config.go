@@ -9,7 +9,7 @@ import (
 	"net/url"
 	"regexp"
 
-	pkgerrors "github.com/pkg/errors"
+	pkgerrors "errors"
 
 	"github.com/smartcontractkit/chainlink/v2/core/null"
 	mercuryutils "github.com/smartcontractkit/chainlink/v2/core/services/relay/evm/mercury/utils"

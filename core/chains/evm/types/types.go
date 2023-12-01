@@ -5,11 +5,12 @@ import (
 	"encoding/json"
 	"math/big"
 
+	"errors"
+
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/common/hexutil"
 	gethTypes "github.com/ethereum/go-ethereum/core/types"
 	"github.com/jackc/pgtype"
-	"github.com/pkg/errors"
 	"gopkg.in/guregu/null.v4"
 
 	"github.com/smartcontractkit/chainlink-common/pkg/types"

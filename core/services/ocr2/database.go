@@ -6,9 +6,10 @@ import (
 	"encoding/binary"
 	"time"
 
+	"errors"
+
 	"github.com/jmoiron/sqlx"
 	"github.com/lib/pq"
-	"github.com/pkg/errors"
 	ocrcommon "github.com/smartcontractkit/libocr/commontypes"
 	ocrtypes "github.com/smartcontractkit/libocr/offchainreporting2plus/types"
 

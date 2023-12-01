@@ -9,7 +9,8 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/pkg/errors"
+	"errors"
+
 	"go.uber.org/multierr"
 )
 

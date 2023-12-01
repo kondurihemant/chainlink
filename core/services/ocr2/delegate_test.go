@@ -3,8 +3,9 @@ package ocr2_test
 import (
 	"testing"
 
+	"errors"
+
 	"github.com/ethereum/go-ethereum/common"
-	"github.com/pkg/errors"
 	"github.com/stretchr/testify/require"
 	"gopkg.in/guregu/null.v4"
 

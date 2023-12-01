@@ -6,7 +6,7 @@ import (
 	"net/url"
 	"testing"
 
-	"github.com/pkg/errors"
+	"errors"
 
 	"github.com/smartcontractkit/chainlink-common/pkg/assets"
 	commontxmmocks "github.com/smartcontractkit/chainlink/v2/common/txmgr/types/mocks"

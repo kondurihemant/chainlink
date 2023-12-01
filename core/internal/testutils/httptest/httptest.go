@@ -6,7 +6,7 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/pkg/errors"
+	"errors"
 )
 
 // NewTestHTTPClient returns a real HTTP client that may only make requests to

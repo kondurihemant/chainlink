@@ -8,7 +8,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/pkg/errors"
+	"errors"
+
 	"github.com/urfave/cli"
 	"go.uber.org/multierr"
 

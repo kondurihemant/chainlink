@@ -10,10 +10,11 @@ import (
 	"strings"
 	"time"
 
+	"errors"
+
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/common/hexutil"
 	"github.com/ethereum/go-ethereum/core/types"
-	"github.com/pkg/errors"
 	"github.com/ugorji/go/codec"
 
 	htrktypes "github.com/smartcontractkit/chainlink/v2/common/headtracker/types"

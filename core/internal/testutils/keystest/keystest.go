@@ -4,10 +4,11 @@ import (
 	"crypto/ecdsa"
 	"crypto/rand"
 
+	"errors"
+
 	"github.com/ethereum/go-ethereum/accounts/keystore"
 	"github.com/ethereum/go-ethereum/crypto"
 	"github.com/google/uuid"
-	"github.com/pkg/errors"
 )
 
 // NewKey pulled from geth

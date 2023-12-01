@@ -5,7 +5,8 @@ import (
 	"net/http"
 	"testing"
 
-	"github.com/pkg/errors"
+	"errors"
+
 	"github.com/stretchr/testify/assert"
 	"go.uber.org/zap"
 

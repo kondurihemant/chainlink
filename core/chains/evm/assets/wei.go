@@ -6,7 +6,8 @@ import (
 	"math/big"
 	"strings"
 
-	"github.com/pkg/errors"
+	"errors"
+
 	"github.com/shopspring/decimal"
 	"golang.org/x/exp/constraints"
 

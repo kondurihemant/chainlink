@@ -15,6 +15,8 @@ import (
 	"strings"
 	"time"
 
+	"errors"
+
 	"github.com/Depado/ginprom"
 	helmet "github.com/danielkov/gin-helmet"
 	"github.com/gin-contrib/cors"
@@ -25,7 +27,6 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/graph-gophers/graphql-go"
 	"github.com/graph-gophers/graphql-go/relay"
-	"github.com/pkg/errors"
 	"github.com/prometheus/client_golang/prometheus"
 	"github.com/prometheus/client_golang/prometheus/promhttp"
 	"github.com/ulule/limiter/v3"

@@ -7,8 +7,9 @@ import (
 	"github.com/smartcontractkit/chainlink/v2/core/services/keystore/keys/ethkey"
 	"github.com/smartcontractkit/chainlink/v2/core/services/pg"
 
+	"errors"
+
 	"github.com/jmoiron/sqlx"
-	"github.com/pkg/errors"
 )
 
 func NewORM(db *sqlx.DB, lggr logger.Logger, cfg pg.QConfig) ksORM {

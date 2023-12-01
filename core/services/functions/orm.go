@@ -4,8 +4,9 @@ import (
 	"fmt"
 	"time"
 
+	"errors"
+
 	"github.com/ethereum/go-ethereum/common"
-	"github.com/pkg/errors"
 
 	"github.com/jmoiron/sqlx"
 

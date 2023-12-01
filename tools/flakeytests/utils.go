@@ -7,7 +7,7 @@ import (
 	"log"
 	"os"
 
-	"github.com/pkg/errors"
+	"errors"
 )
 
 func DigString(mp map[string]interface{}, path []string) (string, error) {

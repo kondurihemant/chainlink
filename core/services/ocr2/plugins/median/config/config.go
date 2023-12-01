@@ -4,7 +4,7 @@
 package config
 
 import (
-	"github.com/pkg/errors"
+	"errors"
 
 	"github.com/smartcontractkit/chainlink/v2/core/services/pipeline"
 )

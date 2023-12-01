@@ -6,8 +6,9 @@ import (
 	"fmt"
 	"testing"
 
+	"errors"
+
 	gqlerrors "github.com/graph-gophers/graphql-go/errors"
-	"github.com/pkg/errors"
 
 	"github.com/smartcontractkit/chainlink/v2/core/internal/testutils/keystest"
 	"github.com/smartcontractkit/chainlink/v2/core/services/keystore/chaintype"

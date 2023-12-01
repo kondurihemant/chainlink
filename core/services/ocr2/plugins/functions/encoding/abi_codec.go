@@ -3,8 +3,9 @@ package encoding
 import (
 	"fmt"
 
+	"errors"
+
 	"github.com/ethereum/go-ethereum/accounts/abi"
-	"github.com/pkg/errors"
 )
 
 type ReportCodec interface {

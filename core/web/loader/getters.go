@@ -3,8 +3,9 @@ package loader
 import (
 	"context"
 
+	"errors"
+
 	"github.com/graph-gophers/dataloader"
-	"github.com/pkg/errors"
 	"go.uber.org/multierr"
 
 	commontypes "github.com/smartcontractkit/chainlink-common/pkg/types"

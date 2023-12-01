@@ -4,7 +4,8 @@ import (
 	"math/big"
 	"testing"
 
-	"github.com/pkg/errors"
+	"errors"
+
 	"github.com/stretchr/testify/assert"
 
 	ocr2keepers "github.com/smartcontractkit/chainlink-automation/pkg/v2"

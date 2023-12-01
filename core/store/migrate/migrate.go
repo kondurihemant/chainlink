@@ -10,7 +10,7 @@ import (
 	"strings"
 
 	"github.com/jmoiron/sqlx"
-	"github.com/pkg/errors"
+	"errors"
 	"github.com/pressly/goose/v3"
 	"gopkg.in/guregu/null.v4"
 

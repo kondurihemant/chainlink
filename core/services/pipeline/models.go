@@ -8,8 +8,9 @@ import (
 	"strconv"
 	"time"
 
+	"errors"
+
 	"github.com/google/uuid"
-	"github.com/pkg/errors"
 	"github.com/shopspring/decimal"
 	"go.uber.org/multierr"
 	"gopkg.in/guregu/null.v4"

@@ -7,11 +7,12 @@ import (
 	"math/big"
 	"time"
 
+	"errors"
+
 	"github.com/ethereum/go-ethereum/accounts/abi/bind"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/ethclient"
 	"github.com/pelletier/go-toml"
-	"github.com/pkg/errors"
 	"github.com/urfave/cli"
 
 	"github.com/jmoiron/sqlx"

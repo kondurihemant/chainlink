@@ -4,7 +4,8 @@ import (
 	"os"
 	"testing"
 
-	"github.com/pkg/errors"
+	"errors"
+
 	"github.com/stretchr/testify/assert"
 
 	"github.com/smartcontractkit/chainlink/v2/core/utils"

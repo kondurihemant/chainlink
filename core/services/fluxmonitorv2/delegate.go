@@ -1,7 +1,7 @@
 package fluxmonitorv2
 
 import (
-	"github.com/pkg/errors"
+	"errors"
 
 	"github.com/jmoiron/sqlx"
 

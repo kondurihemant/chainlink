@@ -8,10 +8,11 @@ import (
 	"strings"
 	"sync"
 
+	pkgerrors "errors"
+
 	"github.com/ethereum/go-ethereum/accounts/abi"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/jmoiron/sqlx"
-	pkgerrors "github.com/pkg/errors"
 	"go.uber.org/multierr"
 
 	"github.com/smartcontractkit/libocr/gethwrappers2/ocr2aggregator"

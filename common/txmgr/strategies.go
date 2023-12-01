@@ -2,10 +2,10 @@ package txmgr
 
 import (
 	"context"
+	"errors"
 	"time"
 
 	"github.com/google/uuid"
-	"github.com/pkg/errors"
 
 	txmgrtypes "github.com/smartcontractkit/chainlink/v2/common/txmgr/types"
 )

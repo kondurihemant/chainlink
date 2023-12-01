@@ -3,8 +3,9 @@ package job
 import (
 	"strings"
 
+	"errors"
+
 	"github.com/pelletier/go-toml"
-	"github.com/pkg/errors"
 )
 
 var (

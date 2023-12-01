@@ -3,8 +3,9 @@ package keeper
 import (
 	"math/big"
 
+	"errors"
+
 	"github.com/ethereum/go-ethereum/core/types"
-	"github.com/pkg/errors"
 )
 
 func (rs *RegistrySynchronizer) ExportedFullSync() {

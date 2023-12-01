@@ -5,8 +5,9 @@ import (
 	"crypto/rand"
 	"math/big"
 
+	"errors"
+
 	"github.com/ethereum/go-ethereum/common"
-	"github.com/pkg/errors"
 )
 
 type TestCoordinator struct {

@@ -5,10 +5,11 @@ import (
 	"net/http"
 	"slices"
 
+	"errors"
+
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/gin-gonic/gin"
 	"github.com/google/uuid"
-	"github.com/pkg/errors"
 
 	coscfg "github.com/smartcontractkit/chainlink-cosmos/pkg/cosmos/config"
 	"github.com/smartcontractkit/chainlink-cosmos/pkg/cosmos/db"

@@ -7,9 +7,10 @@ import (
 	"sync"
 	"time"
 
+	"errors"
+
 	"github.com/google/uuid"
 	"github.com/jmoiron/sqlx"
-	"github.com/pkg/errors"
 	"go.uber.org/multierr"
 
 	"github.com/smartcontractkit/chainlink/v2/core/logger"

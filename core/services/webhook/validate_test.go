@@ -3,8 +3,9 @@ package webhook_test
 import (
 	"testing"
 
+	"errors"
+
 	"github.com/manyminds/api2go/jsonapi"
-	"github.com/pkg/errors"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 

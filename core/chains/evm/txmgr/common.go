@@ -5,10 +5,11 @@ import (
 	"fmt"
 	"time"
 
+	"errors"
+
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/common/hexutil"
 	"github.com/ethereum/go-ethereum/rpc"
-	"github.com/pkg/errors"
 
 	"github.com/smartcontractkit/chainlink-common/pkg/logger"
 	evmclient "github.com/smartcontractkit/chainlink/v2/core/chains/evm/client"

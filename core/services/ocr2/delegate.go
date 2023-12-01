@@ -8,9 +8,10 @@ import (
 	"log"
 	"time"
 
+	"errors"
+
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/jmoiron/sqlx"
-	"github.com/pkg/errors"
 	"google.golang.org/grpc"
 	"gopkg.in/guregu/null.v4"
 

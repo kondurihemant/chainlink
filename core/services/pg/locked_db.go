@@ -5,8 +5,9 @@ import (
 	"net/url"
 	"time"
 
+	"errors"
+
 	"github.com/google/uuid"
-	"github.com/pkg/errors"
 
 	"github.com/jmoiron/sqlx"
 

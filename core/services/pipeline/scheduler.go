@@ -5,8 +5,9 @@ import (
 	"sort"
 	"time"
 
+	"errors"
+
 	"github.com/jpillora/backoff"
-	"github.com/pkg/errors"
 	"gopkg.in/guregu/null.v4"
 
 	"github.com/smartcontractkit/chainlink/v2/core/logger"

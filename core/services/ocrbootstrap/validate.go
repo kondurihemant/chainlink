@@ -1,8 +1,9 @@
 package ocrbootstrap
 
 import (
+	"errors"
+
 	"github.com/pelletier/go-toml"
-	"github.com/pkg/errors"
 
 	"github.com/smartcontractkit/chainlink/v2/core/services/job"
 	"github.com/smartcontractkit/chainlink/v2/core/services/ocrcommon"

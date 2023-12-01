@@ -5,8 +5,9 @@ import (
 	"fmt"
 	"math/big"
 
+	"errors"
+
 	"github.com/fxamacker/cbor/v2"
-	"github.com/pkg/errors"
 )
 
 // ParseDietCBOR attempts to coerce the input byte array into valid CBOR.

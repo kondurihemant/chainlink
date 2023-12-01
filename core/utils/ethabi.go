@@ -7,9 +7,10 @@ import (
 	"math/big"
 	"strings"
 
+	"errors"
+
 	"github.com/ethereum/go-ethereum/accounts/abi"
 	"github.com/ethereum/go-ethereum/common"
-	"github.com/pkg/errors"
 	"github.com/shopspring/decimal"
 	"github.com/tidwall/gjson"
 )

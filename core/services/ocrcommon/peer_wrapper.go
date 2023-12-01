@@ -6,9 +6,10 @@ import (
 	"io"
 	"net"
 
+	"errors"
+
 	p2ppeer "github.com/libp2p/go-libp2p-core/peer"
 	p2ppeerstore "github.com/libp2p/go-libp2p-core/peerstore"
-	"github.com/pkg/errors"
 	"go.uber.org/multierr"
 
 	"github.com/jmoiron/sqlx"

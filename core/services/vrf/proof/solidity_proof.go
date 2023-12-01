@@ -7,8 +7,9 @@ import (
 	"fmt"
 	"math/big"
 
+	"errors"
+
 	"github.com/ethereum/go-ethereum/common"
-	"github.com/pkg/errors"
 	"go.dedis.ch/kyber/v3"
 
 	"github.com/smartcontractkit/chainlink/v2/core/services/keystore/keys/vrfkey"

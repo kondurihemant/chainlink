@@ -6,9 +6,10 @@ import (
 	"encoding/binary"
 	"sync/atomic"
 
+	"errors"
+
 	"github.com/ethereum/go-ethereum/accounts/abi"
 	"github.com/ethereum/go-ethereum/common"
-	"github.com/pkg/errors"
 	"github.com/smartcontractkit/libocr/gethwrappers2/ocr2aggregator"
 
 	ocrtypes "github.com/smartcontractkit/libocr/offchainreporting2/types"

@@ -3,7 +3,7 @@ package resolver
 import (
 	"strings"
 
-	"github.com/pkg/errors"
+	"errors"
 )
 
 type LogLevel string

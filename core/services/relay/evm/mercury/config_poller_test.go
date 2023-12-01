@@ -5,10 +5,11 @@ import (
 	"testing"
 	"time"
 
+	"errors"
+
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/common/hexutil"
 	"github.com/onsi/gomega"
-	"github.com/pkg/errors"
 	confighelper2 "github.com/smartcontractkit/libocr/offchainreporting2plus/confighelper"
 	"github.com/smartcontractkit/libocr/offchainreporting2plus/types"
 	ocrtypes2 "github.com/smartcontractkit/libocr/offchainreporting2plus/types"

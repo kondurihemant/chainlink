@@ -1,9 +1,10 @@
 package p2pkey
 
 import (
+	"errors"
+
 	keystore "github.com/ethereum/go-ethereum/accounts/keystore"
 	"github.com/ethereum/go-ethereum/common/hexutil"
-	"github.com/pkg/errors"
 
 	"github.com/smartcontractkit/chainlink/v2/core/services/keystore/keys"
 	"github.com/smartcontractkit/chainlink/v2/core/utils"

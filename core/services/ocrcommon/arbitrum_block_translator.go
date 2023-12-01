@@ -8,7 +8,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/pkg/errors"
+	"errors"
 
 	evmclient "github.com/smartcontractkit/chainlink/v2/core/chains/evm/client"
 	evmtypes "github.com/smartcontractkit/chainlink/v2/core/chains/evm/types"

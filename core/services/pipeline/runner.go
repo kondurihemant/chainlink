@@ -8,8 +8,9 @@ import (
 	"sync"
 	"time"
 
+	pkgerrors "errors"
+
 	"github.com/google/uuid"
-	pkgerrors "github.com/pkg/errors"
 	"github.com/prometheus/client_golang/prometheus"
 	"github.com/prometheus/client_golang/prometheus/promauto"
 	"gopkg.in/guregu/null.v4"

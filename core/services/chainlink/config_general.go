@@ -9,7 +9,8 @@ import (
 	"sync"
 	"time"
 
-	"github.com/pkg/errors"
+	"errors"
+
 	"go.uber.org/multierr"
 	"go.uber.org/zap/zapcore"
 

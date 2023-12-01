@@ -1,7 +1,7 @@
 package keeper
 
 import (
-	"github.com/pkg/errors"
+	"errors"
 
 	"github.com/jmoiron/sqlx"
 

@@ -6,10 +6,11 @@ import (
 	"net/http"
 	"testing"
 
+	"errors"
+
 	"github.com/Depado/ginprom"
 	"github.com/gin-gonic/gin"
 	"github.com/manyminds/api2go/jsonapi"
-	"github.com/pkg/errors"
 	"github.com/stretchr/testify/require"
 
 	"github.com/smartcontractkit/chainlink/v2/core/services/chainlink"

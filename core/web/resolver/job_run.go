@@ -3,8 +3,9 @@ package resolver
 import (
 	"context"
 
+	"errors"
+
 	"github.com/graph-gophers/graphql-go"
-	"github.com/pkg/errors"
 
 	"github.com/smartcontractkit/chainlink/v2/core/services/chainlink"
 	"github.com/smartcontractkit/chainlink/v2/core/services/pipeline"

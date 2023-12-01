@@ -7,10 +7,11 @@ import (
 	"strings"
 	"sync"
 
+	"errors"
+
 	"github.com/go-webauthn/webauthn/protocol"
 	"github.com/go-webauthn/webauthn/webauthn"
 	sqlxTypes "github.com/jmoiron/sqlx/types"
-	"github.com/pkg/errors"
 )
 
 // WebAuthn holds the credentials for API user.

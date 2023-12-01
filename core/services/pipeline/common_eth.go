@@ -9,10 +9,11 @@ import (
 	"strconv"
 	"strings"
 
+	"errors"
+
 	"github.com/ethereum/go-ethereum/accounts/abi"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/common/hexutil"
-	"github.com/pkg/errors"
 
 	"github.com/smartcontractkit/chainlink/v2/core/utils"
 )

@@ -5,9 +5,10 @@ import (
 	"math/big"
 	"sync"
 
+	"errors"
+
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/core/types"
-	"github.com/pkg/errors"
 
 	"github.com/smartcontractkit/chainlink-common/pkg/logger"
 	evmtypes "github.com/smartcontractkit/chainlink/v2/core/chains/evm/types"

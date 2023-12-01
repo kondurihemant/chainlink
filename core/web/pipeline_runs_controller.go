@@ -6,9 +6,10 @@ import (
 	"net/http"
 	"strconv"
 
+	"errors"
+
 	"github.com/gin-gonic/gin"
 	"github.com/google/uuid"
-	"github.com/pkg/errors"
 
 	"github.com/smartcontractkit/chainlink/v2/core/logger/audit"
 	"github.com/smartcontractkit/chainlink/v2/core/services/chainlink"

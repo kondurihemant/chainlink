@@ -1,8 +1,9 @@
 package webhook
 
 import (
+	"errors"
+
 	"github.com/pelletier/go-toml"
-	"github.com/pkg/errors"
 	"go.uber.org/multierr"
 
 	"github.com/smartcontractkit/chainlink/v2/core/services/job"

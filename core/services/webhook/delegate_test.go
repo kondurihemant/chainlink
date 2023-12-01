@@ -6,7 +6,7 @@ import (
 	"github.com/google/uuid"
 	"gopkg.in/guregu/null.v4"
 
-	"github.com/pkg/errors"
+	"errors"
 
 	"github.com/stretchr/testify/mock"
 	"github.com/stretchr/testify/require"

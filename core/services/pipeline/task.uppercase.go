@@ -4,7 +4,8 @@ import (
 	"context"
 	"strings"
 
-	"github.com/pkg/errors"
+	"errors"
+
 	"go.uber.org/multierr"
 
 	"github.com/smartcontractkit/chainlink/v2/core/logger"

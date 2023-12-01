@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"math/big"
 
-	"github.com/pkg/errors"
+	"errors"
 
 	"github.com/smartcontractkit/caigo"
 

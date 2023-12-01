@@ -7,7 +7,7 @@ import (
 	"math/big"
 	"sync"
 
-	pkgerrors "github.com/pkg/errors"
+	pkgerrors "errors"
 
 	ocrtypes "github.com/smartcontractkit/libocr/offchainreporting2plus/types"
 

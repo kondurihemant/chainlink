@@ -6,11 +6,12 @@ import (
 	"encoding/hex"
 	"fmt"
 
+	"errors"
+
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/google/uuid"
 	"github.com/lib/pq"
 	"github.com/pelletier/go-toml/v2"
-	"github.com/pkg/errors"
 	"github.com/prometheus/client_golang/prometheus"
 	"github.com/prometheus/client_golang/prometheus/promauto"
 	"gopkg.in/guregu/null.v4"

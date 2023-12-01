@@ -1,8 +1,9 @@
 package directrequest
 
 import (
+	"errors"
+
 	"github.com/pelletier/go-toml"
-	"github.com/pkg/errors"
 
 	"github.com/smartcontractkit/chainlink-common/pkg/assets"
 	"github.com/smartcontractkit/chainlink/v2/core/null"

@@ -4,7 +4,8 @@ import (
 	"math"
 	"math/big"
 
-	"github.com/pkg/errors"
+	"errors"
+
 	"github.com/shopspring/decimal"
 )
 

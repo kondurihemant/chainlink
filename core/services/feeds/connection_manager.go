@@ -5,7 +5,7 @@ import (
 	"crypto/ed25519"
 	"sync"
 
-	"github.com/pkg/errors"
+	"errors"
 
 	"github.com/smartcontractkit/wsrpc"
 	"github.com/smartcontractkit/wsrpc/connectivity"

@@ -1,7 +1,7 @@
 package ocrcommon
 
 import (
-	"github.com/pkg/errors"
+	"errors"
 
 	"github.com/smartcontractkit/libocr/commontypes"
 

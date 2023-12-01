@@ -6,8 +6,9 @@ import (
 	"strings"
 	"time"
 
+	"errors"
+
 	"github.com/jmoiron/sqlx"
-	"github.com/pkg/errors"
 
 	"github.com/smartcontractkit/chainlink/v2/core/auth"
 	"github.com/smartcontractkit/chainlink/v2/core/bridges"

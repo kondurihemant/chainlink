@@ -1,8 +1,9 @@
 package auth
 
 import (
+	"errors"
+
 	"github.com/gin-gonic/gin"
-	"github.com/pkg/errors"
 
 	"github.com/smartcontractkit/chainlink/v2/core/store/models"
 )

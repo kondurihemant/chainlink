@@ -8,7 +8,8 @@ import (
 	"github.com/smartcontractkit/chainlink/v2/core/services/s4"
 	"github.com/smartcontractkit/chainlink/v2/core/utils"
 
-	"github.com/pkg/errors"
+	"errors"
+
 	"github.com/smartcontractkit/libocr/commontypes"
 	"github.com/smartcontractkit/libocr/offchainreporting2plus/types"
 )

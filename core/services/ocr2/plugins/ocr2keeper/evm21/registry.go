@@ -9,12 +9,13 @@ import (
 	"sync"
 	"time"
 
+	"errors"
+
 	"github.com/ethereum/go-ethereum/accounts/abi"
 	"github.com/ethereum/go-ethereum/accounts/abi/bind"
 	"github.com/ethereum/go-ethereum/common"
 	coreTypes "github.com/ethereum/go-ethereum/core/types"
 	"github.com/patrickmn/go-cache"
-	"github.com/pkg/errors"
 	"go.uber.org/multierr"
 
 	"github.com/smartcontractkit/chainlink-common/pkg/services"

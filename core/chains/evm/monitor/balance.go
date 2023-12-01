@@ -8,8 +8,9 @@ import (
 	"sync"
 	"time"
 
+	"errors"
+
 	gethCommon "github.com/ethereum/go-ethereum/common"
-	"github.com/pkg/errors"
 	"github.com/prometheus/client_golang/prometheus"
 	"github.com/prometheus/client_golang/prometheus/promauto"
 

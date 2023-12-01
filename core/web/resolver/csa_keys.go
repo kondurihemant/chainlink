@@ -3,8 +3,9 @@ package resolver
 import (
 	"fmt"
 
+	"errors"
+
 	"github.com/graph-gophers/graphql-go"
-	"github.com/pkg/errors"
 
 	"github.com/smartcontractkit/chainlink/v2/core/services/keystore"
 	"github.com/smartcontractkit/chainlink/v2/core/services/keystore/keys/csakey"

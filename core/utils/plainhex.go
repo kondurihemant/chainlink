@@ -5,7 +5,7 @@ import (
 	"encoding/json"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
 )
 
 // Similar to go-ethereum's hexutil.Bytes but does not assume a 0x prefix.

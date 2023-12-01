@@ -7,7 +7,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/pkg/errors"
+	"errors"
 )
 
 // GetterFunc is a function that either returns a value or an error.

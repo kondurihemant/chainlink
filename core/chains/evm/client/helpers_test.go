@@ -7,7 +7,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/pkg/errors"
+	"errors"
 
 	"github.com/smartcontractkit/chainlink-common/pkg/logger"
 	commonclient "github.com/smartcontractkit/chainlink/v2/common/client"

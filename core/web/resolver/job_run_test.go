@@ -4,8 +4,9 @@ import (
 	"database/sql"
 	"testing"
 
+	"errors"
+
 	gqlerrors "github.com/graph-gophers/graphql-go/errors"
-	"github.com/pkg/errors"
 	"github.com/stretchr/testify/mock"
 	"github.com/stretchr/testify/require"
 	"gopkg.in/guregu/null.v4"

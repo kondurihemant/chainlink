@@ -5,7 +5,8 @@ import (
 	"database/sql"
 	"os"
 
-	"github.com/pkg/errors"
+	"errors"
+
 	"github.com/pressly/goose/v3"
 
 	"github.com/smartcontractkit/chainlink/v2/core/config/env"

@@ -14,10 +14,11 @@ import (
 	"strings"
 	"time"
 
+	pkgerrors "errors"
+
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/google/uuid"
 	"github.com/mitchellh/mapstructure"
-	pkgerrors "github.com/pkg/errors"
 	"gopkg.in/guregu/null.v4"
 
 	"github.com/smartcontractkit/chainlink/v2/core/chains/evm/config"

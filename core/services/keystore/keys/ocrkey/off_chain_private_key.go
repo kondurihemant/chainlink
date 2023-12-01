@@ -3,7 +3,7 @@ package ocrkey
 import (
 	"crypto/ed25519"
 
-	"github.com/pkg/errors"
+	"errors"
 )
 
 type offChainPrivateKey ed25519.PrivateKey

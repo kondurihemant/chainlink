@@ -8,7 +8,8 @@ import (
 	"encoding/json"
 	"io"
 
-	"github.com/pkg/errors"
+	"errors"
+
 	ocrtypes "github.com/smartcontractkit/libocr/offchainreporting2plus/types"
 
 	"github.com/smartcontractkit/chainlink/v2/core/services/keystore/chaintype"

@@ -4,9 +4,10 @@ import (
 	"fmt"
 	"testing"
 
+	"errors"
+
 	"github.com/ethereum/go-ethereum/common"
 	gqlerrors "github.com/graph-gophers/graphql-go/errors"
-	"github.com/pkg/errors"
 	"github.com/stretchr/testify/mock"
 
 	commonassets "github.com/smartcontractkit/chainlink-common/pkg/assets"

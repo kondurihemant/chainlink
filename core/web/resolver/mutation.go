@@ -8,8 +8,9 @@ import (
 	"net/url"
 	"time"
 
+	"errors"
+
 	"github.com/graph-gophers/graphql-go"
-	"github.com/pkg/errors"
 	"go.uber.org/zap/zapcore"
 	"gopkg.in/guregu/null.v4"
 

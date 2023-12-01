@@ -9,7 +9,7 @@ import (
 	"github.com/smartcontractkit/chainlink/v2/core/store/models"
 	"github.com/smartcontractkit/chainlink/v2/core/utils"
 
-	"github.com/pkg/errors"
+	"errors"
 )
 
 // ExternalInitiatorRequest is the incoming record used to create an ExternalInitiator.

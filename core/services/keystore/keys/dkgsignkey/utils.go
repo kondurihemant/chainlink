@@ -3,7 +3,8 @@ package dkgsignkey
 import (
 	"math/big"
 
-	"github.com/pkg/errors"
+	"errors"
+
 	"go.dedis.ch/kyber/v3"
 )
 

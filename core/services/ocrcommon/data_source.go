@@ -6,7 +6,8 @@ import (
 	"sync"
 	"time"
 
-	"github.com/pkg/errors"
+	"errors"
+
 	ocr1types "github.com/smartcontractkit/libocr/offchainreporting/types"
 	"github.com/smartcontractkit/libocr/offchainreporting2/reportingplugin/median"
 	ocr2types "github.com/smartcontractkit/libocr/offchainreporting2plus/types"

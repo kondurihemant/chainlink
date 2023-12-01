@@ -6,7 +6,7 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/pkg/errors"
+	"errors"
 
 	"github.com/smartcontractkit/chainlink-common/pkg/services"
 

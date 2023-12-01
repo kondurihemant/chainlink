@@ -8,7 +8,7 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/pkg/errors"
+	"errors"
 
 	"github.com/smartcontractkit/chainlink/v2/core/logger"
 	clhttp "github.com/smartcontractkit/chainlink/v2/core/utils/http"

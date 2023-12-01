@@ -7,7 +7,8 @@ import (
 	"math/big"
 	"sync"
 
-	pkgerrors "github.com/pkg/errors"
+	pkgerrors "errors"
+
 	"github.com/prometheus/client_golang/prometheus"
 	"github.com/prometheus/client_golang/prometheus/promauto"
 

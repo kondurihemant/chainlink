@@ -4,7 +4,8 @@ import (
 	"context"
 	"database/sql"
 
-	"github.com/pkg/errors"
+	"errors"
+
 	mapper "github.com/scylladb/go-reflectx"
 
 	"github.com/jmoiron/sqlx"

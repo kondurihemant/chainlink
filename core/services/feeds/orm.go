@@ -5,9 +5,10 @@ import (
 	"fmt"
 	"strings"
 
+	"errors"
+
 	"github.com/google/uuid"
 	"github.com/lib/pq"
-	"github.com/pkg/errors"
 
 	"github.com/jmoiron/sqlx"
 

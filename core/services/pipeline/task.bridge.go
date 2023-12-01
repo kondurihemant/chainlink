@@ -9,7 +9,8 @@ import (
 	"path"
 	"time"
 
-	"github.com/pkg/errors"
+	"errors"
+
 	"github.com/prometheus/client_golang/prometheus"
 	"github.com/prometheus/client_golang/prometheus/promauto"
 	"go.uber.org/multierr"

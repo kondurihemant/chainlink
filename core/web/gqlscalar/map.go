@@ -3,7 +3,7 @@ package gqlscalar
 import (
 	"encoding/json"
 
-	"github.com/pkg/errors"
+	"errors"
 )
 
 // Map to contain configuration

@@ -11,10 +11,11 @@ import (
 	"strconv"
 	"strings"
 
+	"errors"
+
 	"github.com/manyminds/api2go/jsonapi"
 	"github.com/mitchellh/go-homedir"
 	"github.com/pelletier/go-toml"
-	"github.com/pkg/errors"
 	"github.com/tidwall/gjson"
 	"github.com/urfave/cli"
 	"go.uber.org/multierr"

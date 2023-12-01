@@ -7,7 +7,7 @@ import (
 	"reflect"
 	"sync"
 
-	pkgerrors "github.com/pkg/errors"
+	pkgerrors "errors"
 
 	"github.com/jmoiron/sqlx"
 

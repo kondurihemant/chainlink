@@ -6,13 +6,14 @@ import (
 	"testing"
 	"time"
 
+	"errors"
+
 	"github.com/ethereum/go-ethereum/accounts/abi/bind"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/core"
 	"github.com/ethereum/go-ethereum/core/types"
 	"github.com/ethereum/go-ethereum/eth/ethconfig"
 	"github.com/onsi/gomega"
-	"github.com/pkg/errors"
 	"github.com/smartcontractkit/libocr/gethwrappers/link_token_interface"
 	"github.com/stretchr/testify/require"
 

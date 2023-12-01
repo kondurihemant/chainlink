@@ -3,7 +3,8 @@ package pipeline
 import (
 	"context"
 
-	"github.com/pkg/errors"
+	"errors"
+
 	"github.com/shopspring/decimal"
 	"go.uber.org/multierr"
 

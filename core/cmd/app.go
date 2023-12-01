@@ -7,7 +7,8 @@ import (
 	"path/filepath"
 	"regexp"
 
-	"github.com/pkg/errors"
+	"errors"
+
 	"github.com/urfave/cli"
 
 	"github.com/smartcontractkit/chainlink/v2/core/build"

@@ -5,10 +5,11 @@ import (
 	"database/sql"
 	"time"
 
+	"errors"
+
 	"github.com/Masterminds/semver/v3"
 	"github.com/jackc/pgconn"
 	"github.com/jmoiron/sqlx"
-	"github.com/pkg/errors"
 
 	"github.com/smartcontractkit/chainlink/v2/core/logger"
 	"github.com/smartcontractkit/chainlink/v2/core/services/pg"

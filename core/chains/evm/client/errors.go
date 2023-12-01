@@ -6,9 +6,10 @@ import (
 	"fmt"
 	"regexp"
 
+	"errors"
+
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/core/types"
-	"github.com/pkg/errors"
 
 	"github.com/smartcontractkit/chainlink-common/pkg/logger"
 	commonclient "github.com/smartcontractkit/chainlink/v2/common/client"

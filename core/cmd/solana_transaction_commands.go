@@ -6,8 +6,9 @@ import (
 	"fmt"
 	"strconv"
 
+	"errors"
+
 	solanaGo "github.com/gagliardetto/solana-go"
-	"github.com/pkg/errors"
 	"github.com/urfave/cli"
 	"go.uber.org/multierr"
 

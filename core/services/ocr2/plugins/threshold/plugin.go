@@ -3,7 +3,7 @@ package threshold
 import (
 	"encoding/json"
 
-	"github.com/pkg/errors"
+	"errors"
 
 	"github.com/smartcontractkit/libocr/commontypes"
 	libocr2 "github.com/smartcontractkit/libocr/offchainreporting2plus"

@@ -4,9 +4,10 @@ import (
 	"fmt"
 	"time"
 
+	"errors"
+
 	"github.com/avast/retry-go/v4"
 	"github.com/ethereum/go-ethereum/common"
-	"github.com/pkg/errors"
 	"github.com/theodesp/go-heaps/pairing"
 	"go.uber.org/multierr"
 

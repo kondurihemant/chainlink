@@ -8,10 +8,11 @@ import (
 	"strings"
 	"time"
 
+	"errors"
+
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/google/uuid"
 	"github.com/lib/pq"
-	"github.com/pkg/errors"
 	"gopkg.in/guregu/null.v4"
 
 	commonassets "github.com/smartcontractkit/chainlink-common/pkg/assets"

@@ -5,7 +5,7 @@ import (
 	"crypto/rand"
 	"math/big"
 
-	"github.com/pkg/errors"
+	"errors"
 
 	"github.com/smartcontractkit/chainlink/v2/core/logger"
 )

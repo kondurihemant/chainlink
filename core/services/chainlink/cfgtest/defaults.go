@@ -7,7 +7,7 @@ import (
 	"reflect"
 	"strings"
 
-	"github.com/pkg/errors"
+	"errors"
 )
 
 // DocDefaultsOnly reads only the default values from a docs TOML file and decodes in to cfg.

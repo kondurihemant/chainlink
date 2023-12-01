@@ -3,7 +3,7 @@ package web
 import (
 	"math/big"
 
-	"github.com/pkg/errors"
+	"errors"
 
 	"github.com/smartcontractkit/chainlink/v2/core/chains/legacyevm"
 )

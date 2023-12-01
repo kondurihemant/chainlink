@@ -5,7 +5,8 @@ import (
 	"fmt"
 	"math/big"
 
-	"github.com/pkg/errors"
+	"errors"
+
 	"go.dedis.ch/kyber/v3"
 	"go.dedis.ch/kyber/v3/pairing"
 

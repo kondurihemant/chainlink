@@ -5,7 +5,7 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"github.com/pkg/errors"
+	"errors"
 
 	"github.com/jmoiron/sqlx"
 

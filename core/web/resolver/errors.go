@@ -3,7 +3,7 @@ package resolver
 import (
 	"database/sql"
 
-	"github.com/pkg/errors"
+	"errors"
 
 	"github.com/smartcontractkit/chainlink/v2/core/chains"
 )

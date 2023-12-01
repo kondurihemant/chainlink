@@ -3,7 +3,8 @@ package client_test
 import (
 	"testing"
 
-	"github.com/pkg/errors"
+	"errors"
+
 	"github.com/stretchr/testify/assert"
 
 	evmclient "github.com/smartcontractkit/chainlink/v2/core/chains/evm/client"

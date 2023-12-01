@@ -7,8 +7,9 @@ import (
 	"testing"
 	"time"
 
+	"errors"
+
 	"github.com/onsi/gomega"
-	"github.com/pkg/errors"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/mock"
 	"github.com/stretchr/testify/require"

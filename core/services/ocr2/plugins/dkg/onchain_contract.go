@@ -3,9 +3,10 @@ package dkg
 import (
 	"context"
 
+	"errors"
+
 	"github.com/ethereum/go-ethereum/accounts/abi/bind"
 	"github.com/ethereum/go-ethereum/common"
-	"github.com/pkg/errors"
 	"go.dedis.ch/kyber/v3/sign/anon"
 
 	"github.com/smartcontractkit/chainlink-vrf/dkg"

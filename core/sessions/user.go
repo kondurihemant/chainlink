@@ -5,7 +5,8 @@ import (
 	"net/mail"
 	"time"
 
-	"github.com/pkg/errors"
+	"errors"
+
 	"gopkg.in/guregu/null.v4"
 
 	"github.com/smartcontractkit/chainlink/v2/core/utils"

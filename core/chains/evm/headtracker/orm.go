@@ -5,8 +5,9 @@ import (
 	"database/sql"
 	"math/big"
 
+	"errors"
+
 	"github.com/ethereum/go-ethereum/common"
-	"github.com/pkg/errors"
 
 	"github.com/jmoiron/sqlx"
 

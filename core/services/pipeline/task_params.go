@@ -9,8 +9,9 @@ import (
 	"strconv"
 	"strings"
 
+	"errors"
+
 	"github.com/ethereum/go-ethereum/common"
-	"github.com/pkg/errors"
 	"github.com/shopspring/decimal"
 
 	"github.com/smartcontractkit/chainlink/v2/core/utils"

@@ -4,9 +4,10 @@ import (
 	"strings"
 	"testing"
 
+	"errors"
+
 	"github.com/kylelemons/godebug/diff"
 	gotoml "github.com/pelletier/go-toml/v2"
-	"github.com/pkg/errors"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 

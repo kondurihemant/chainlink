@@ -6,8 +6,9 @@ import (
 	"sync"
 	"time"
 
+	"errors"
+
 	"github.com/ethereum/go-ethereum/common/hexutil"
-	"github.com/pkg/errors"
 
 	"github.com/smartcontractkit/chainlink-common/pkg/logger"
 	"github.com/smartcontractkit/chainlink-common/pkg/services"

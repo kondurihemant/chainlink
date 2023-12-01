@@ -7,10 +7,11 @@ import (
 	"errors"
 	"sync"
 
+	pkgerrors "errors"
+
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/jmoiron/sqlx"
 	"github.com/lib/pq"
-	pkgerrors "github.com/pkg/errors"
 
 	ocrtypes "github.com/smartcontractkit/libocr/offchainreporting2plus/types"
 

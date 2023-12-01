@@ -5,7 +5,7 @@ import (
 	"io"
 	"math/big"
 
-	"github.com/pkg/errors"
+	"errors"
 
 	"github.com/smartcontractkit/caigo"
 	caigotypes "github.com/smartcontractkit/caigo/types"

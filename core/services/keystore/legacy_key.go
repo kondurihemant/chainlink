@@ -3,7 +3,7 @@ package keystore
 import (
 	"encoding/json"
 
-	"github.com/pkg/errors"
+	"errors"
 )
 
 type rawLegacyKey []string

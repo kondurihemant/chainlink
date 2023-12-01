@@ -8,7 +8,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/pkg/errors"
+	"errors"
 
 	"github.com/ethereum/go-ethereum/common"
 )

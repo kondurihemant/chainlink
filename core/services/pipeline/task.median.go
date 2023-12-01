@@ -4,7 +4,8 @@ import (
 	"context"
 	"sort"
 
-	"github.com/pkg/errors"
+	"errors"
+
 	"github.com/shopspring/decimal"
 	"go.uber.org/multierr"
 

@@ -6,8 +6,9 @@ import (
 	"fmt"
 	"math/big"
 
+	"errors"
+
 	"github.com/jmoiron/sqlx"
-	"github.com/pkg/errors"
 
 	"github.com/smartcontractkit/libocr/commontypes"
 	libocr2 "github.com/smartcontractkit/libocr/offchainreporting2plus"

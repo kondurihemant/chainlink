@@ -9,11 +9,12 @@ import (
 	"slices"
 	"time"
 
+	"errors"
+
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/google/uuid"
 	"github.com/jackc/pgconn"
 	"github.com/lib/pq"
-	"github.com/pkg/errors"
 	"go.uber.org/multierr"
 
 	"github.com/jmoiron/sqlx"

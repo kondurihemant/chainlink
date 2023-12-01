@@ -3,9 +3,10 @@ package gateway
 import (
 	"encoding/json"
 
+	"errors"
+
 	"github.com/google/uuid"
 	"github.com/pelletier/go-toml"
-	"github.com/pkg/errors"
 
 	"github.com/smartcontractkit/chainlink/v2/core/chains/legacyevm"
 	"github.com/smartcontractkit/chainlink/v2/core/logger"
