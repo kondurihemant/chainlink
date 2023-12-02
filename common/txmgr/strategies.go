@@ -2,7 +2,7 @@ package txmgr
 
 import (
 	"context"
-	"errors"
+	"fmt"
 	"time"
 
 	"github.com/google/uuid"
@@ -63,7 +63,7 @@ func (s DropOldestStrategy) PruneQueue(ctx context.Context, pruneService txmgrty
 
 	n, err = pruneService.PruneUnstartedTxQueue(ctx, s.queueSize, s.subject)
 	if err != nil {
-		return 0, errors.Wrap(err, "DropOldestStrategy#PruneQueue failed")
+		return 0, fmt.Errorf("DropOldestStrategy#PruneQueue failed: %w", err)
 	}
 	return
 }
