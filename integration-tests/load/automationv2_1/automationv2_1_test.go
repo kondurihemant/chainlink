@@ -565,10 +565,10 @@ func TestLogTrigger(t *testing.T) {
 		l.Error().Err(err).Msg("Error sending slack notification")
 	}
 
-	t.Cleanup(func() {
-		if err = actions.TeardownRemoteSuite(t, testEnvironment.Cfg.Namespace, chainlinkNodes, nil, chainClient); err != nil {
-			l.Error().Err(err).Msg("Error when tearing down remote suite")
-		}
-	})
+	//t.Cleanup(func() {
+	//	if err = actions.TeardownRemoteSuite(t, testEnvironment.Cfg.Namespace, chainlinkNodes, nil, chainClient); err != nil {
+	//		l.Error().Err(err).Msg("Error when tearing down remote suite")
+	//	}
+	//})
 
 }
