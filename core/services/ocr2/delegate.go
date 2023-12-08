@@ -589,7 +589,11 @@ func (d *Delegate) newServicesGenericPlugin(
 	}
 
 	pluginLggr := lggr.Named(p.PluginName).Named(spec.ContractID).Named(spec.GetID())
-	cmdFn, grpcOpts, err := d.cfg.RegisterLOOP(fmt.Sprintf("%s-%s-%s", p.PluginName, spec.ContractID, spec.GetID()), command)
+	cmdFn, grpcOpts, err := d.cfg.RegisterLOOP(plugins.CmdConfig{
+		ID:  fmt.Sprintf("%s-%s-%s", p.PluginName, spec.ContractID, spec.GetID()),
+		Cmd: command,
+		//TODO memory limit?
+	})
 	if err != nil {
 		return nil, fmt.Errorf("failed to register loop: %w", err)
 	}

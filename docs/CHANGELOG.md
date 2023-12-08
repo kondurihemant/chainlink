@@ -9,6 +9,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [dev]
 
+### Added 
+
+- Environment variables `CL_MEDIAN_ENV`, `CL_SOLANA_ENV`, and `CL_STARKNET_ENV` for setting environment variables in LOOP Plugins with an `.env` file.
+  ```
+  echo "Foo=Bar" >> median.env
+  echo "Baz=Val" >> median.env  
+  CL_MEDIAN_ENV="median.env"
+  ```
+
 ### Fixed
 
 - Fixed the encoding used for transactions when resending in batches
