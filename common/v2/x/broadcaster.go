@@ -15,7 +15,6 @@ import (
 	"go.uber.org/multierr"
 	"gopkg.in/guregu/null.v4"
 
-	"github.com/smartcontractkit/chainlink-common/pkg/chains/label"
 	"github.com/smartcontractkit/chainlink-common/pkg/logger"
 	"github.com/smartcontractkit/chainlink-common/pkg/services"
 
@@ -145,6 +144,8 @@ type Broadcaster[
 	sequenceLock         sync.RWMutex
 	nextSequenceMap      map[ADDR]SEQ
 	generateNextSequence types.GenerateNextSequenceFunc[SEQ]
+
+	addressStateManager *AddressStateManager[CHAIN_ID, ADDR, TX_HASH, BLOCK_HASH, SEQ, FEE]
 }
 
 func NewBroadcaster[
@@ -169,22 +170,24 @@ func NewBroadcaster[
 	checkerFactory TransmitCheckerFactory[CHAIN_ID, ADDR, TX_HASH, BLOCK_HASH, SEQ, FEE],
 	autoSyncSequence bool,
 	generateNextSequence types.GenerateNextSequenceFunc[SEQ],
+	addressStateManager *AddressStateManager[CHAIN_ID, ADDR, TX_HASH, BLOCK_HASH, SEQ, FEE],
 ) *Broadcaster[CHAIN_ID, HEAD, ADDR, TX_HASH, BLOCK_HASH, SEQ, FEE] {
 	lggr = logger.Named(lggr, "Broadcaster")
 	b := &Broadcaster[CHAIN_ID, HEAD, ADDR, TX_HASH, BLOCK_HASH, SEQ, FEE]{
-		lggr:             lggr,
-		txStore:          txStore,
-		client:           client,
-		TxAttemptBuilder: txAttemptBuilder,
-		sequenceSyncer:   sequenceSyncer,
-		chainID:          client.ConfiguredChainID(),
-		config:           config,
-		feeConfig:        feeConfig,
-		txConfig:         txConfig,
-		listenerConfig:   listenerConfig,
-		ks:               keystore,
-		checkerFactory:   checkerFactory,
-		autoSyncSequence: autoSyncSequence,
+		lggr:                lggr,
+		txStore:             txStore,
+		client:              client,
+		TxAttemptBuilder:    txAttemptBuilder,
+		sequenceSyncer:      sequenceSyncer,
+		chainID:             client.ConfiguredChainID(),
+		config:              config,
+		feeConfig:           feeConfig,
+		txConfig:            txConfig,
+		listenerConfig:      listenerConfig,
+		ks:                  keystore,
+		checkerFactory:      checkerFactory,
+		autoSyncSequence:    autoSyncSequence,
+		addressStateManager: addressStateManager,
 	}
 
 	b.processUnstartedTxsImpl = b.processUnstartedTxs
@@ -457,49 +460,14 @@ func (eb *Broadcaster[CHAIN_ID, HEAD, ADDR, TX_HASH, BLOCK_HASH, SEQ, FEE]) proc
 		return retryable, fmt.Errorf("processUnstartedTxs failed on handleAnyInProgressTx: %w", err)
 	}
 	for {
-		maxInFlightTransactions := eb.txConfig.MaxInFlight()
-		if maxInFlightTransactions > 0 {
-			nUnconfirmed, err := eb.txStore.CountUnconfirmedTransactions(ctx, fromAddress, eb.chainID)
-			if err != nil {
-				return true, fmt.Errorf("CountUnconfirmedTransactions failed: %w", err)
-			}
-			if nUnconfirmed >= maxInFlightTransactions {
-				nUnstarted, err := eb.txStore.CountUnstartedTransactions(ctx, fromAddress, eb.chainID)
-				if err != nil {
-					return true, fmt.Errorf("CountUnstartedTransactions failed: %w", err)
-				}
-				eb.lggr.Warnw(fmt.Sprintf(`Transaction throttling; %d transactions in-flight and %d unstarted transactions pending (maximum number of in-flight transactions is %d per key). %s`, nUnconfirmed, nUnstarted, maxInFlightTransactions, label.MaxInFlightTransactionsWarning), "maxInFlightTransactions", maxInFlightTransactions, "nUnconfirmed", nUnconfirmed, "nUnstarted", nUnstarted)
-				select {
-				case <-time.After(InFlightTransactionRecheckInterval):
-				case <-ctx.Done():
-					return false, context.Cause(ctx)
-				}
-				continue
-			}
-		}
-		etx, err := eb.nextUnstartedTransactionWithSequence(fromAddress)
+		tx, retryable, err := eb.addressStateManager.UpdateNextUnstartedTxToInProgress(ctx, fromAddress, eb.GetNextSequence, eb.NewTxAttempt)
 		if err != nil {
-			return true, fmt.Errorf("processUnstartedTxs failed on nextUnstartedTransactionWithSequence: %w", err)
-		}
-		if etx == nil {
-			return false, nil
+			return retryable, fmt.Errorf("processUnstartedTxs failed on UpdateNextUnstartedTxToInProgress: %w", err)
 		}
 		n++
-		var a txmgrtypes.TxAttempt[CHAIN_ID, ADDR, TX_HASH, BLOCK_HASH, SEQ, FEE]
-		var retryable bool
-		a, _, _, retryable, err = eb.NewTxAttempt(ctx, *etx, eb.lggr)
-		if err != nil {
-			return retryable, fmt.Errorf("processUnstartedTxs failed on NewAttempt: %w", err)
-		}
 
-		if err := eb.txStore.UpdateTxUnstartedToInProgress(ctx, etx, &a); errors.Is(err, ErrTxRemoved) {
-			eb.lggr.Debugw("tx removed", "txID", etx.ID, "subject", etx.Subject)
-			continue
-		} else if err != nil {
-			return true, fmt.Errorf("processUnstartedTxs failed on UpdateTxUnstartedToInProgress: %w", err)
-		}
-
-		if err, retryable := eb.handleInProgressTx(ctx, *etx, a, time.Now()); err != nil {
+		a := tx.TxAttempts[0]
+		if err, retryable := eb.handleInProgressTx(ctx, tx, a, time.Now()); err != nil {
 			return retryable, fmt.Errorf("processUnstartedTxs failed on handleInProgressTx: %w", err)
 		}
 	}
@@ -508,15 +476,16 @@ func (eb *Broadcaster[CHAIN_ID, HEAD, ADDR, TX_HASH, BLOCK_HASH, SEQ, FEE]) proc
 // handleInProgressTx checks if there is any transaction
 // in_progress and if so, finishes the job
 func (eb *Broadcaster[CHAIN_ID, HEAD, ADDR, TX_HASH, BLOCK_HASH, SEQ, FEE]) handleAnyInProgressTx(ctx context.Context, fromAddress ADDR) (err error, retryable bool) {
-	etx, err := eb.txStore.GetTxInProgress(ctx, fromAddress)
+	tx, err := eb.addressStateManager.GetTxInProgress(fromAddress)
 	if err != nil {
 		return fmt.Errorf("handleAnyInProgressTx failed: %w", err), true
 	}
-	if etx != nil {
-		if err, retryable := eb.handleInProgressTx(ctx, *etx, etx.TxAttempts[0], etx.CreatedAt); err != nil {
-			return fmt.Errorf("handleAnyInProgressTx failed: %w", err), retryable
-		}
+	// TODO: WHY IS THIS USING THE FIRST ATTEMPT?
+	// TODO: WHY IS THIS NOT USING TIME.NOW()?
+	if err, retryable := eb.handleInProgressTx(ctx, tx, tx.TxAttempts[0], tx.CreatedAt); err != nil {
+		return fmt.Errorf("handleAnyInProgressTx failed: %w", err), retryable
 	}
+
 	return nil, false
 }
 
@@ -691,28 +660,6 @@ func (eb *Broadcaster[CHAIN_ID, HEAD, ADDR, TX_HASH, BLOCK_HASH, SEQ, FEE]) hand
 
 }
 
-// Finds next transaction in the queue, assigns a sequence, and moves it to "in_progress" state ready for broadcast.
-// Returns nil if no transactions are in queue
-func (eb *Broadcaster[CHAIN_ID, HEAD, ADDR, TX_HASH, BLOCK_HASH, SEQ, FEE]) nextUnstartedTransactionWithSequence(fromAddress ADDR) (*txmgrtypes.Tx[CHAIN_ID, ADDR, TX_HASH, BLOCK_HASH, SEQ, FEE], error) {
-	ctx, cancel := eb.chStop.NewCtx()
-	defer cancel()
-	etx := &txmgrtypes.Tx[CHAIN_ID, ADDR, TX_HASH, BLOCK_HASH, SEQ, FEE]{}
-	if err := eb.txStore.FindNextUnstartedTransactionFromAddress(ctx, etx, fromAddress, eb.chainID); err != nil {
-		if errors.Is(err, sql.ErrNoRows) {
-			// Finish. No more transactions left to process. Hoorah!
-			return nil, nil
-		}
-		return nil, fmt.Errorf("findNextUnstartedTransactionFromAddress failed: %w", err)
-	}
-
-	sequence, err := eb.GetNextSequence(ctx, etx.FromAddress)
-	if err != nil {
-		return nil, err
-	}
-	etx.Sequence = &sequence
-	return etx, nil
-}
-
 func (eb *Broadcaster[CHAIN_ID, HEAD, ADDR, TX_HASH, BLOCK_HASH, SEQ, FEE]) tryAgainBumpingGas(ctx context.Context, lgr logger.Logger, txError error, etx txmgrtypes.Tx[CHAIN_ID, ADDR, TX_HASH, BLOCK_HASH, SEQ, FEE], attempt txmgrtypes.TxAttempt[CHAIN_ID, ADDR, TX_HASH, BLOCK_HASH, SEQ, FEE], initialBroadcastAt time.Time) (err error, retryable bool) {
 	logger.With(lgr,
 		"sendError", txError,
@@ -794,6 +741,11 @@ func (eb *Broadcaster[CHAIN_ID, HEAD, ADDR, TX_HASH, BLOCK_HASH, SEQ, FEE]) save
 	return eb.txStore.UpdateTxFatalError(ctx, etx)
 }
 
+func observeTimeUntilBroadcast[CHAIN_ID types.ID](chainID CHAIN_ID, createdAt, broadcastAt time.Time) {
+	duration := float64(broadcastAt.Sub(createdAt))
+	promTimeUntilBroadcast.WithLabelValues(chainID.String()).Observe(duration)
+}
+
 // Used to get the next usable sequence for a transaction
 func (eb *Broadcaster[CHAIN_ID, HEAD, ADDR, TX_HASH, BLOCK_HASH, SEQ, FEE]) GetNextSequence(ctx context.Context, address ADDR) (seq SEQ, err error) {
 	eb.sequenceLock.Lock()
@@ -835,9 +787,4 @@ func (eb *Broadcaster[CHAIN_ID, HEAD, ADDR, TX_HASH, BLOCK_HASH, SEQ, FEE]) SetN
 	eb.sequenceLock.Lock()
 	defer eb.sequenceLock.Unlock()
 	eb.nextSequenceMap[address] = seq
-}
-
-func observeTimeUntilBroadcast[CHAIN_ID types.ID](chainID CHAIN_ID, createdAt, broadcastAt time.Time) {
-	duration := float64(broadcastAt.Sub(createdAt))
-	promTimeUntilBroadcast.WithLabelValues(chainID.String()).Observe(duration)
 }

@@ -188,6 +188,14 @@ type Tx[
 	SEQ types.Sequence,
 	FEE feetypes.Fee,
 ] struct {
+	// NEW FIELDS
+	UUID                 uuid.UUID
+	CreatedAtUnixNano    int64
+	NewMeta              *TxMeta[ADDR, TX_HASH]
+	NewTransmitChecker   TransmitCheckerSpec[ADDR]
+	NewPipelineTaskRunID *uuid.UUID
+
+	// OLD FIELDS
 	ID             int64
 	IdempotencyKey *string
 	Sequence       *SEQ

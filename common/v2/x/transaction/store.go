@@ -1,36 +1,52 @@
 package transaction
 
 import (
+	feetypes "github.com/smartcontractkit/chainlink/v2/common/fee/types"
+	txmgrtypes "github.com/smartcontractkit/chainlink/v2/common/txmgr/types"
 	"github.com/smartcontractkit/chainlink/v2/common/types"
 	"github.com/spf13/afero"
 )
 
 type FileStore[
+	CHAIN_ID types.ID,
 	ADDR types.Hashable,
+	TX_HASH types.Hashable,
+	BLOCK_HASH types.Hashable,
 	SEQ types.Sequence,
+	FEE feetypes.Fee,
 ] struct {
 	fs afero.Fs
 }
 
 func NewInMemoryFileStore[
+	CHAIN_ID types.ID,
 	ADDR types.Hashable,
+	TX_HASH types.Hashable,
+	BLOCK_HASH types.Hashable,
 	SEQ types.Sequence,
-]() *FileStore[ADDR, SEQ] {
-	return &FileStore[ADDR, SEQ]{
+	FEE feetypes.Fee,
+]() *FileStore[CHAIN_ID, ADDR, TX_HASH, BLOCK_HASH, SEQ, FEE] {
+	return &FileStore[CHAIN_ID, ADDR, TX_HASH, BLOCK_HASH, SEQ, FEE]{
 		fs: afero.NewMemMapFs(),
 	}
 }
 
 func NewFileStore[
+	CHAIN_ID types.ID,
 	ADDR types.Hashable,
+	TX_HASH types.Hashable,
+	BLOCK_HASH types.Hashable,
 	SEQ types.Sequence,
-]() *FileStore[ADDR, SEQ] {
-	return &FileStore[ADDR, SEQ]{
+	FEE feetypes.Fee,
+]() *FileStore[CHAIN_ID, ADDR, TX_HASH, BLOCK_HASH, SEQ, FEE] {
+	return &FileStore[CHAIN_ID, ADDR, TX_HASH, BLOCK_HASH, SEQ, FEE]{
 		fs: afero.NewOsFs(),
 	}
 }
 
-func (fs *FileStore[ADDR, SEQ]) Create(tx TX[ADDR, SEQ]) (err error) {
+func (fs *FileStore[CHAIN_ID, ADDR, TX_HASH, BLOCK_HASH, SEQ, FEE]) Create(
+	tx txmgrtypes.Tx[CHAIN_ID, ADDR, TX_HASH, BLOCK_HASH, SEQ, FEE],
+) error {
 	/*
 		// NOTE: ATOMIC WRITE
 
@@ -69,10 +85,10 @@ func (fs *FileStore[ADDR, SEQ]) Create(tx TX[ADDR, SEQ]) (err error) {
 	return nil
 }
 
-func (fs *FileStore[ADDR, SEQ]) Update(tx TX[ADDR, SEQ]) error {
+func (fs *FileStore[CHAIN_ID, ADDR, TX_HASH, BLOCK_HASH, SEQ, FEE]) Update(tx txmgrtypes.Tx[CHAIN_ID, ADDR, TX_HASH, BLOCK_HASH, SEQ, FEE]) error {
 	return nil
 }
 
-func (fs *FileStore[ADDR, SEQ]) Delete(tx TX[ADDR, SEQ]) error {
+func (fs *FileStore[CHAIN_ID, ADDR, TX_HASH, BLOCK_HASH, SEQ, FEE]) Delete(tx txmgrtypes.Tx[CHAIN_ID, ADDR, TX_HASH, BLOCK_HASH, SEQ, FEE]) error {
 	return nil
 }
