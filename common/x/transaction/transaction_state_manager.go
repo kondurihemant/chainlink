@@ -30,8 +30,7 @@ type TxStore[
 	SEQ types.Sequence,
 	FEE feetypes.Fee,
 ] interface {
-	Create(tx txmgrtypes.Tx[CHAIN_ID, ADDR, TX_HASH, BLOCK_HASH, SEQ, FEE]) error
-	Update(tx txmgrtypes.Tx[CHAIN_ID, ADDR, TX_HASH, BLOCK_HASH, SEQ, FEE]) error
+	Upsert(tx txmgrtypes.Tx[CHAIN_ID, ADDR, TX_HASH, BLOCK_HASH, SEQ, FEE]) error
 	Delete(tx txmgrtypes.Tx[CHAIN_ID, ADDR, TX_HASH, BLOCK_HASH, SEQ, FEE]) error
 }
 
@@ -165,7 +164,7 @@ func (as *StateManager[CHAIN_ID, ADDR, TX_HASH, BLOCK_HASH, SEQ, FEE]) UpdateNex
 	etx.TxAttempts = append(etx.TxAttempts, txAttempt)
 
 	// PERSIST TX
-	if err := as.TxStore.Update(*etx); err != nil {
+	if err := as.TxStore.Upsert(*etx); err != nil {
 		etx.State = txmgr.TxUnstarted
 		etx.TxAttempts = etx.TxAttempts[:len(etx.TxAttempts)-1]
 		etx.Sequence = nil
@@ -213,7 +212,7 @@ func (as *StateManager[CHAIN_ID, ADDR, TX_HASH, BLOCK_HASH, SEQ, FEE]) EnqueueUn
 	tx.State = txmgr.TxUnstarted
 
 	// PERSIST TX
-	if err := as.TxStore.Create(tx); err != nil {
+	if err := as.TxStore.Upsert(tx); err != nil {
 		return txmgrtypes.Tx[CHAIN_ID, ADDR, TX_HASH, BLOCK_HASH, SEQ, FEE]{}, fmt.Errorf("failed to persist transaction: %w", err)
 	}
 
