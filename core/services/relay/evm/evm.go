@@ -501,7 +501,7 @@ func (r *Relayer) NewMedianProvider(rargs commontypes.RelayArgs, pargs commontyp
 			},
 		}
 
-		if chainReaderService, err = NewChainReaderService(lggr, r.chain.LogPoller(), b, r.chain, *relayConfig.ChainReader); err != nil {
+		if chainReaderService, err = NewChainReaderService(lggr, r.chain.LogPoller(), r.chain, *relayConfig.ChainReader); err != nil {
 			return nil, err
 		}
 	} else {

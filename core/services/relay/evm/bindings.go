@@ -3,48 +3,39 @@ package evm
 import (
 	"fmt"
 
-	"github.com/ethereum/go-ethereum/common"
-
-	"github.com/smartcontractkit/chainlink-common/pkg/types"
+	commontypes "github.com/smartcontractkit/chainlink-common/pkg/types"
 )
 
-type Bindings map[string]methodBindings
+type bindings map[string]map[string]binding
 
-func (b Bindings) addEvent(contractName, typeName string, evt common.Hash) error {
-	ae, err := b.getBinding(contractName, typeName, true)
-	if err != nil {
-		return err
+func (b bindings) GetBinding(contractName, readName string) (binding, error) {
+	methodReaders, ok := b[contractName]
+	if !ok {
+		return nil, fmt.Errorf("%w: no contract named %s", commontypes.ErrInvalidType, contractName)
 	}
 
-	ae.evt = &evt
+	reader, ok := methodReaders[readName]
+	if !ok {
+		return nil, fmt.Errorf("%w: no readName named %s in contract%s", commontypes.ErrInvalidType, readName, contractName)
+	}
+	return reader, nil
+}
+
+func (b bindings) AddBinding(contractName, readName string, reader binding) {
+	mb, ok := b[contractName]
+	if !ok {
+		b[contractName] = map[string]binding{}
+	}
+	mb[readName] = reader
+}
+
+func (b bindings) ForEach(fn func(binding) error) error {
+	for _, readers := range b {
+		for _, reader := range readers {
+			if err := fn(reader); err != nil {
+				return err
+			}
+		}
+	}
 	return nil
-}
-
-func (b Bindings) getBinding(contractName, methodName string, isConfig bool) (*addrEvtBinding, error) {
-	errType := types.ErrInvalidType
-	if isConfig {
-		errType = types.ErrInvalidConfig
-	}
-	methodNames, ok := b[contractName]
-	if !ok {
-		return nil, fmt.Errorf("%w: contract %s not found", errType, contractName)
-	}
-
-	ae, ok := methodNames[methodName]
-	if !ok {
-		return nil, fmt.Errorf("%w: method %s not found in contract %s", errType, methodName, contractName)
-	}
-
-	return ae, nil
-}
-
-type methodBindings map[string]*addrEvtBinding
-
-func NewAddrEvtFromAddress(address common.Address) *addrEvtBinding {
-	return &addrEvtBinding{addr: address}
-}
-
-type addrEvtBinding struct {
-	addr common.Address
-	evt  *common.Hash
 }

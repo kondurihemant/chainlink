@@ -161,7 +161,7 @@ func (it *chainReaderInterfaceTester) GetChainReader(t *testing.T) clcommontypes
 			MethodReturningUint64: evm.NewAddrEvtFromAddress(addr2),
 		},
 	}
-	cr, err := evm.NewChainReaderService(lggr, lp, b, it.chain, it.chainConfig)
+	cr, err := evm.NewChainReaderService(lggr, lp, it.chain, it.chainConfig)
 	require.NoError(t, err)
 	require.NoError(t, cr.Start(ctx))
 	it.cr = cr
