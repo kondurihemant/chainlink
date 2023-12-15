@@ -9,6 +9,7 @@ import (
 
 	"github.com/smartcontractkit/chainlink/v2/core"
 	"github.com/smartcontractkit/chainlink/v2/core/static"
+	"github.com/smartcontractkit/chainlink/v2/internal/heavyweight"
 	"github.com/smartcontractkit/chainlink/v2/tools/txtar"
 )
 
@@ -39,5 +40,13 @@ func commonEnv(env *testscript.Env) error {
 	env.Setenv("HOME", "$WORK/home")
 	env.Setenv("VERSION", static.Version)
 	env.Setenv("COMMIT_SHA", static.Sha)
+	tb, ok := env.T().(testing.TB)
+	if !ok {
+		env.T().Skip("Unable to make a database")
+		return nil
+	}
+	cfg, _ := heavyweight.FullTestDBEmptyV2(tb, nil)
+	dbURL := cfg.Database().URL()
+	env.Setenv("CL_DATABASE_URL", dbURL.String())
 	return nil
 }

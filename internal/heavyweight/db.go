@@ -1,10 +1,10 @@
-package heavyweight
-
-// The heavyweight package contains cltest items that are costly and you should
+// Package heavyweight contains test helpers that are costly and you should
 // think **real carefully** before using in your tests.
+package heavyweight
 
 import (
 	"database/sql"
+	_ "embed"
 	"errors"
 	"fmt"
 	"net/url"
@@ -21,12 +21,12 @@ import (
 	"github.com/jmoiron/sqlx"
 
 	"github.com/smartcontractkit/chainlink/v2/core/cmd"
-	"github.com/smartcontractkit/chainlink/v2/core/internal/testutils"
-	"github.com/smartcontractkit/chainlink/v2/core/internal/testutils/configtest"
 	"github.com/smartcontractkit/chainlink/v2/core/services/chainlink"
 	"github.com/smartcontractkit/chainlink/v2/core/services/pg"
 	"github.com/smartcontractkit/chainlink/v2/core/store/dialects"
 	"github.com/smartcontractkit/chainlink/v2/core/store/models"
+	"github.com/smartcontractkit/chainlink/v2/internal/testutils"
+	"github.com/smartcontractkit/chainlink/v2/internal/testutils/configtest"
 )
 
 // FullTestDBV2 creates a pristine DB which runs in a separate database than the normal
@@ -86,7 +86,7 @@ func prepareFullTestDBV2(t testing.TB, empty bool, loadFixtures bool, overrideFn
 		if !ok {
 			t.Fatal("could not get runtime.Caller(1)")
 		}
-		filepath := path.Join(path.Dir(filename), "../../../store/fixtures/fixtures.sql")
+		filepath := path.Join(path.Dir(filename), "../../core/store/fixtures/fixtures.sql")
 		fixturesSQL, err := os.ReadFile(filepath)
 		require.NoError(t, err)
 		_, err = db.Exec(string(fixturesSQL))

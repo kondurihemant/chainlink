@@ -33,6 +33,8 @@ import (
 	"github.com/stretchr/testify/require"
 	// NOTE: To avoid circular dependencies, this package MUST NOT import
 	// anything from "github.com/smartcontractkit/chainlink/v2/core"
+
+	"github.com/smartcontractkit/chainlink/v2/internal/testutils"
 )
 
 const (
@@ -116,7 +118,7 @@ func RandomizeName(n string) string {
 }
 
 // DefaultWaitTimeout is the default wait timeout. If you have a *testing.T, use WaitTimeout instead.
-const DefaultWaitTimeout = 30 * time.Second
+const DefaultWaitTimeout = testutils.DefaultWaitTimeout
 
 // WaitTimeout returns a timeout based on the test's Deadline, if available.
 // Especially important to use in parallel tests, as their individual execution
@@ -407,14 +409,12 @@ func WaitForLogMessageCount(t *testing.T, observedLogs *observer.ObservedLogs, m
 
 // SkipShort skips tb during -short runs, and notes why.
 func SkipShort(tb testing.TB, why string) {
-	if testing.Short() {
-		tb.Skipf("skipping: %s", why)
-	}
+	testutils.SkipShort(tb, why)
 }
 
 // SkipShortDB skips tb during -short runs, and notes the DB dependency.
 func SkipShortDB(tb testing.TB) {
-	SkipShort(tb, "DB dependency")
+	testutils.SkipShort(tb, "DB dependency")
 }
 
 func AssertCount(t *testing.T, db *sqlx.DB, tableName string, expected int64) {

@@ -1,0 +1,22 @@
+exec chainlink node start -p password -a creds &
+exec sleep 8
+exec chainlink admin login -file creds --bypass-version-check
+exec chainlink health
+cmp stdout out.txt
+
+-- password --
+T.tLHkcmwePT/p,]sYuntjwHKAsrhm#4eRs4LuKHwvHejWYAC2JP4M8HimwgmbaZ
+-- creds --
+notreal@fakeemail.ch
+fj293fbBnlQ!f9vNs
+
+-- out.txt --
+-EventBroadcaster
+-JobSpawner
+-Mercury.WSRPCPool
+-Monitor
+-PipelineORM
+-PipelineRunner
+-PromReporter
+-TelemetryManager
+
