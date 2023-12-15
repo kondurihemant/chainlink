@@ -33,6 +33,8 @@ import (
 	"github.com/ulule/limiter/v3/drivers/store/memory"
 	"github.com/unrolled/secure"
 
+	"go.opentelemetry.io/contrib/instrumentation/github.com/gin-gonic/gin/otelgin"
+
 	"github.com/smartcontractkit/chainlink/v2/core/build"
 	"github.com/smartcontractkit/chainlink/v2/core/logger"
 	"github.com/smartcontractkit/chainlink/v2/core/services/chainlink"
@@ -45,6 +47,8 @@ import (
 // NewRouter returns *gin.Engine router that listens and responds to requests to the node for valid paths.
 func NewRouter(app chainlink.Application, prometheus *ginprom.Prometheus) (*gin.Engine, error) {
 	engine := gin.New()
+	// otel tracing
+	engine.Use(otelgin.Middleware("chainlink"))
 	engine.RemoteIPHeaders = nil // don't trust default headers: "X-Forwarded-For", "X-Real-IP"
 	config := app.GetConfig()
 	secret, err := app.SecretGenerator().Generate(config.RootDir())

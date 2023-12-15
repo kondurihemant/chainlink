@@ -13,6 +13,7 @@ import (
 	"github.com/google/uuid"
 	"github.com/grafana/pyroscope-go"
 	"github.com/pkg/errors"
+	"go.opentelemetry.io/otel/trace"
 	"go.uber.org/multierr"
 	"go.uber.org/zap/zapcore"
 
@@ -141,6 +142,7 @@ type ChainlinkApplication struct {
 	secretGenerator          SecretGenerator
 	profiler                 *pyroscope.Profiler
 	loopRegistry             *plugins.LoopRegistry
+	tracer                   trace.Tracer
 
 	started     bool
 	startStopMu sync.Mutex
@@ -185,6 +187,11 @@ func NewApplication(opts ApplicationOpts) (Application, error) {
 	restrictedHTTPClient := opts.RestrictedHTTPClient
 	unrestrictedHTTPClient := opts.UnrestrictedHTTPClient
 
+	// TODO: tracer should be a service(?) or something that can handle shutdown. ignoring shutdown func for now
+	tracer, _, err := initTracer(opts.Config.Tracing())
+	if err != nil {
+		return nil, fmt.Errorf("failed to initialize tracer: %v", err)
+	}
 	// LOOPs can be created as options, in the  case of LOOP relayers, or
 	// as OCR2 job implementations, in the case of Median today.
 	// We will have a non-nil registry here in LOOP relayers are being used, otherwise
@@ -499,8 +506,8 @@ func NewApplication(opts ApplicationOpts) (Application, error) {
 		secretGenerator:          opts.SecretGenerator,
 		profiler:                 profiler,
 		loopRegistry:             loopRegistry,
-
-		sqlxDB: opts.SqlxDB,
+		tracer:                   tracer,
+		sqlxDB:                   opts.SqlxDB,
 
 		// NOTE: Can keep things clean by putting more things in srvcs instead of manually start/closing
 		srvcs: srvcs,
